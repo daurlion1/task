@@ -1,0 +1,117 @@
+[
+    {
+        "pk": 1,
+        "model": "task.fill_types",
+        "fields": {
+            "name": "color"
+
+        }
+    },
+    {
+        "pk": 2,
+        "model": "task.fill_types",
+        "fields": {
+            "name": "gradient"
+
+        }
+    },
+
+    {
+        "pk": 1,
+        "model": "task.fill_type_attributes",
+        "fields": {
+            "name": "color",
+            "fill_type_id": 1
+
+        }
+    },
+    {
+        "pk": 2,
+        "model": "task.fill_type_attributes",
+        "fields": {
+            "name": "color1",
+            "fill_type_id": 2
+
+        }
+    },
+    {
+        "pk": 3,
+        "model": "task.fill_type_attributes",
+        "fields": {
+            "name": "color2",
+            "fill_type_id": 2
+
+        }
+    },
+    {
+        "pk": 4,
+        "model": "task.fill_type_attributes",
+        "fields": {
+            "name": "angle",
+            "fill_type_id": 2
+
+        }
+    },
+    {
+        "pk": 1,
+        "model": "task.areas",
+        "fields": {
+            "name": "areaname1",
+            "description": "areadescription1",
+            "points": [32,23],
+            "fill_type_id": 1
+
+        }
+    },
+    {
+        "pk": 2,
+        "model": "task.areas",
+        "fields": {
+            "name": "areaname2",
+            "description": "areadescription2",
+            "points": [70,30],
+            "fill_type_id": 2
+
+        }
+    },
+  {
+        "pk": 1,
+        "model": "task.area_type_attributes",
+        "fields": {
+            "value": "FFFFFF",
+            "area_id": 1,
+            "fill_type_attribute_id": 1
+
+        }
+    },
+  {
+        "pk": 2,
+        "model": "task.area_type_attributes",
+        "fields": {
+            "value": "FFFFFF",
+            "area_id": 2,
+            "fill_type_attribute_id": 2
+
+        }
+    },
+  {
+        "pk": 3,
+        "model": "task.area_type_attributes",
+        "fields": {
+            "value": "000000",
+            "area_id": 2,
+            "fill_type_attribute_id": 3
+
+        }
+    },
+  {
+        "pk": 4,
+        "model": "task.area_type_attributes",
+        "fields": {
+            "value": "45",
+            "area_id": 2,
+            "fill_type_attribute_id": 4
+
+        }
+    }
+]
