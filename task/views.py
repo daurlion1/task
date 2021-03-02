@@ -6,6 +6,8 @@ from rest_framework.decorators import api_view
 from .models import areas,fill_types,fill_type_attributes,area_type_attributes
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+import json
+
 
 
 
@@ -66,4 +68,35 @@ def areass(request):
 
         data.append(obj)
 
-    return Response(data)
+    return Response({"areas":data})
+
+@api_view(['GET', 'POST'])
+def area(request):
+    if request.method == "POST":
+
+        area = (request.data['area'])
+        fill_type = (request.data['fill_type'])
+        attributes = (request.data['attributes'])
+        # print(fill_type['name'])
+        return Response(add_area(area, fill_type, attributes), status=status.HTTP_200_OK)
+        # return Response("ok", status=status.HTTP_200_OK)
+
+
+def add_area(area, fill_type, attributes):
+        new_fill_type = fill_types.objects.create(name = fill_type['name'])
+        new_area = areas.objects.create(
+            name = area['name'],
+            description = area['description'],
+            points = area['points'],
+            fill_type_id = new_fill_type.id
+        )
+        add_attributes(attributes, new_fill_type.id, new_area.id)
+        return 'Successfully added'
+
+def add_attributes(attributes,fill_type_id,area_id):
+    for atrr in attributes:
+        new_attr = fill_type_attributes.objects.create(name = atrr['name'],fill_type_id = fill_type_id)
+        area_attr = area_type_attributes.objects.create(
+            value = atrr['value'],
+            fill_type_attribute_id = new_attr.id,
+            area_id = area_id )

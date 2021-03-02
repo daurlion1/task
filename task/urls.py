@@ -6,7 +6,7 @@ router = routers.DefaultRouter()
 # router.register(r'users', views.UserViewSet)
 # router.register(r'groups', views.GroupViewSet)
 router.register(r'fill_types', views.FillTypeViewSet)
-router.register(r'areas', views.AreaViewSet)
+# router.register(r'areass', views.AreaViewSet)
 router.register(r'type attributes',views.FillTypeAttributeViewSet)
 
 
@@ -15,6 +15,7 @@ router.register(r'type attributes',views.FillTypeAttributeViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('go/areas', views.areass, name='areas'),
+    path('areas', views.areass, name='areas'),
+    path('area', views.area, name='fill type CRU'),
 
 ]
